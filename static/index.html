@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Language Code Translator</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <!-- PrismJS for Syntax Highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <div class="logo">
+                <span class="gradient-text">Code</span>Translator
+                <span class="badge">Offline Rules Engine</span>
+            </div>
+            <p class="subtitle">Translate basic constructs between Python, Java, and C++ using AST & Regex.</p>
+        </header>
+
+        <main class="translator-workspace">
+            <!-- Left Panel: Input -->
+            <div class="panel input-panel">
+                <div class="panel-header">
+                    <div class="language-selector">
+                        <label for="source-lang">Source</label>
+                        <select id="source-lang">
+                            <option value="python">Python</option>
+                            <option value="java">Java</option>
+                            <option value="c++">C++</option>
+                        </select>
+                    </div>
+                    <button id="btn-sample" class="btn btn-secondary">Load Sample</button>
+                </div>
+                <div class="editor-container">
+                    <textarea id="source-code" spellcheck="false" placeholder="Paste your code here..."></textarea>
+                </div>
+            </div>
+
+            <!-- Middle: Action -->
+            <div class="action-panel">
+                <button id="btn-translate" class="btn btn-primary">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                    Translate
+                </button>
+            </div>
+
+            <!-- Right Panel: Output -->
+            <div class="panel output-panel">
+                <div class="panel-header">
+                    <div class="language-selector">
+                        <label for="target-lang">Target</label>
+                        <select id="target-lang">
+                            <option value="java">Java</option>
+                            <option value="python">Python</option>
+                            <option value="c++">C++</option>
+                        </select>
+                    </div>
+                    <button id="btn-copy" class="btn btn-secondary">Copy</button>
+                </div>
+                <div class="editor-container">
+                    <pre><code id="target-code" class="language-java">Translation will appear here...</code></pre>
+                </div>
+            </div>
+        </main>
+        
+        <div id="error-toast" class="toast hidden"></div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-java.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-c.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-cpp.min.js"></script>
+    <script src="/static/script.js?v=2"></script>
+</body>
+</html>
